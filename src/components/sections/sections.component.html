@@ -1,0 +1,14 @@
+<div *ngFor="let section of sections; index as i">
+  <h2>{{ section.name }}</h2>
+  <div class="section">
+    <ng-container *ngIf="i === 2; else customIcon">
+      <mat-icon *ngFor="let icon of section.items" [svgIcon]="icon"></mat-icon>
+    </ng-container>
+
+    <ng-template #customIcon>
+      <span *ngFor="let icon of section.items" [class]="section.class">
+        {{ icon }}
+      </span>
+    </ng-template>
+  </div>
+</div>
